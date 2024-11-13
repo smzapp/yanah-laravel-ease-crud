@@ -22,7 +22,7 @@ class GenerateResource extends Command
             $this->generateModel($name);
         }
         if (empty($only) || in_array('vue', $only)) {
-            $this->generateVueComponent($name);
+            $this->call('ease:vue', ['name' => $name]);
         }
 
         $this->info("Resources for {$name} generated successfully!");
@@ -54,20 +54,5 @@ class GenerateResource extends Command
         $content = str_replace('{{ className }}', $name, $stub);
         File::put($path, $content);
         $this->info("Model created at {$path}");
-    }
-
-    protected function generateVueComponent($name)
-    {
-        $path = resource_path("js/components/{$name}.vue");
-        if (File::exists($path)) {
-            $this->error("Vue component already exists at {$path}!");
-            return;
-        }
-
-        $stub = File::get(__DIR__.'/stubs/vue.stub');
-        $content = str_replace('{{ componentName }}', $name, $stub);
-        File::ensureDirectoryExists(resource_path('js/components'));
-        File::put($path, $content);
-        $this->info("Vue component created at {$path}");
     }
 }
