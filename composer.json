@@ -1,5 +1,5 @@
 {
-    "name": "yanah/laravel-ease",
+    "name": "yanah/laravel-ease-crud",
     "description": "A Laravel package to help ease of development",
     "type": "library",
     "license": "MIT",
@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Yanah\\LaravelEase\\ResourceGeneratorServiceProvider"
+                "Yanah\\LaravelEase\\EaseServiceProvider"
             ]
         }
     }
