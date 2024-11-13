@@ -3,10 +3,11 @@
 
 # Installation
 
-- composer installation
+`composer require yanah/laravel-ease-crud`
 
-`
-'providers' => [
+- Add `EaseServiceProvider` in `app.php` 
+
+`'providers' => [
     // Other providers...
     Yanah\LaravelEase\EaseServiceProvider::class,
 ]
